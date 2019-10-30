@@ -21,7 +21,7 @@ public class Main {
 
 
     private static int[][] grid = new int[6][6];                                                    //Declaration of the grid area where the ships will be placed
-    private static int[] fleets = new int[2];                                                       //Declaration of the fleets. One Fleet of ships is for SERVER and the other for CLIENT
+    private static int[] fleets = {3, 3};                                                           //Declaration of the fleets. One Fleet of ships is for SERVER and the other for CLIENT
 
     public static void main(String[] args) {
 
@@ -34,13 +34,9 @@ public class Main {
                                                                                                     //When an incoming connection arrives, it means that a CLIENT joined the game
             System.out.println("\nConnection Created!");
             delay(2);
-            System.out.println("\n\nPreparing for the new Battle! The fate of the nation depends on you!");
-            fleets[0]=3;                                                                            //The SERVER's fleet is initialized with 3 ships
-            fleets[1]=3;                                                                            //The CLIENT's fleet is initialized with 3 ships
-            delay(2);
 
             intro(socket);                                                                          //Shows the Sea-Grid where the battle will happen
-            delay(3);
+            delay(2);
 
             grid = deployShips(socket);                                                             //SERVER is asked to insert the coordinates where he want to deploy its ships
             delay(1);
@@ -49,6 +45,7 @@ public class Main {
 
             grid = takingEnemyShipCoordinates(socket);                                              //Waits for the CLIENT to send us the coordinates where he wants to deploy its ships
                                                                                                     //The USER does not know these coordinates. They are used in the background
+            delay(1);
 
 
             System.out.println("\n\nLET THE BATTLE BEGIN");
@@ -86,30 +83,37 @@ public class Main {
 
     //The function which displayes the area where the battle will be fought, with no ships on it, but just the area it covers
     public static void intro(Socket socket) {
-            System.out.println("\nRight now the Sea is empty\n");
+        System.out.println("\n\n\n****Welcome to the Battleship Game****\n\n\n");
+        delay(2);
+        System.out.println("\n\nThere is new Enemy initiating an attack!");
+        System.out.println("Preparing for the new Battle! The fate of the nation depends on you!");
+        delay(2);
+        System.out.println("\nRight now the Sea is empty\n");
             System.out.println("   012345  ");
             for (int i=0;i<6;i++){
-                System.out.println(i+ " !         ! " +i);
+                System.out.println(i+ " |      | " +i);
             }
-            System.out.println("   012345  ");
+            System.out.println("   012345");
     }
 
     //The functoin which allows user to insert coordinates for each of his ships in order to deploy them into the sea grid.
     public static int[][] deployShips(Socket socket) {
         for (int i = 0; i < 3; i++) {
             System.out.println("\nPlease insert the coordinates where" +
-                    " you want to deploy your number " + i + 1 + " ship!\n");
+                    " you want to deploy your number " + i + 1 + " ship!");
+            delay(1);
             int x, y;
             System.out.print("X coordinate: ");
             x = takeCoordinate();                                                                   //SERVER inserts X coordinate
             System.out.print("Y coordinate: ");
             y = takeCoordinate();                                                                   //SERVER inserts Y coordinate
             while (grid[x][y] == 1) {
-                System.out.println("Please make sure to use other coordinates. " +
+                System.out.println("\nPlease make sure to use other coordinates. " +
                         "You already have placed one ship here");
+                delay(1);
                 System.out.print("X coordinate: ");
                 x = takeCoordinate();
-                System.out.print("X coordinate: ");
+                System.out.print("Y coordinate: ");
                 y = takeCoordinate();
             }
             grid[x][y] = 1;                                                                         //The cell is set at 1 to indicate that there is a SERVER's ship
@@ -153,8 +157,8 @@ public class Main {
     public static void showNewSea(int[][] grid) {
         System.out.println("   012345  ");
         for(int i=0;i<5;i++){
-            System.out.print(i+ " !");
-            for(int j=0;j<=5;j++){
+            System.out.print(i+ " |");
+            for(int j=0;j<6;j++){
                 if(grid[i][j]==0||grid[i][j]==2){                                                   //The cell equals 0 when there is nothing in the cell and 2 when there is a CLIENT ship
                     System.out.print(" ");                                                          //In both cases we show nothing in the SeaGrid, so SERVER's has to try and find where ships are hidden
                 } else if (grid[i][j]==1){                                                          //Cell equals 1 when there is SERVER's ship hidden in that spot.
@@ -167,7 +171,7 @@ public class Main {
                     System.out.print("*");                                                          //"*" indicates that SERVER MISSED the shot by shooting an empty cell
                 }
             }
-            System.out.println("! " +i);
+            System.out.println("| " +i);
         }
         System.out.println("   012345  ");
 
@@ -182,7 +186,7 @@ public class Main {
             boolean eleminated = false;
             for (int i=1; i<=3; i++){
                 BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));  //BufferedReader is the place where the input stream, coming from the CLIENT application through the socket, will be held
-                System.out.println("Waiting for the "+ i +" ship");
+                System.out.println("\nWaiting for the "+ i +" ship");
                 String mess = input.readLine();                                                             //The stream is stored as a String in a variable
                 String temp = mess;
                 int ocurrence = mess.indexOf(' ');                                                          //From the message which has the form "x y" we are able to fetch both coordinates
@@ -192,7 +196,7 @@ public class Main {
                 if (grid[x][y]==1){                                                                         //In case CLIENT places the ship in the same Grid Cell as SERVER, both ships are destroyed
                     delay(1);
                     System.out.println("\nUPPS! Enemy placed its ship in the same coordinates with yours." +
-                            " Both of your ships have been destroyed\n");
+                            " Both of your ships have been destroyed");
                     eleminated =true;
                     fleets[0]--;                                                                            //The number of ships for both of fleets is decremented
                     fleets[1]--;
@@ -217,14 +221,14 @@ public class Main {
     //The function responsible for the SERVER shot
     public static int[][] serverShot(Socket socket, int[][] grid) {
         Scanner input = new Scanner(System.in);
-        System.out.println("It is your turn!\n");
+        System.out.println("\nIt is your turn to shoot!\n");
         System.out.print("Enter your X coordinate: ");
         int x=takeCoordinate();                                                                 //The X coordinate is inserted
-        System.out.print("\nEnter your Y coordinate: ");
+        System.out.print("Enter your Y coordinate: ");
         int y=takeCoordinate();                                                                 //The Y coordinate is inserted
+        sendCoordinates(socket, x, y);                                                          //The inserted coordinates are sent to the CLIENT application
         delay(1);
         System.out.println("\nRocket is flyyiinnggg...");
-        sendCoordinates(socket, x, y);                                                          //The inserted coordinates are sent to the CLIENT application
         grid = checkServerResult(grid, x, y);                                                   //The shooting is checked for its result
         delay(1);
         return grid;                                                                            //The grid is returned with its updated values after the shooting
@@ -253,7 +257,7 @@ public class Main {
             delay(2);
             BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));      //The coordinates are fetched in the same way as before with the ship coordinates case
             String mess = input.readLine();
-            System.out.println("\nIncomingggg....\n");
+            System.out.println("\nIncomingggg....");
             String temp = mess;
             int ocurrence = mess.indexOf(' ');
             int x=Integer.parseInt(mess.substring(0, ocurrence));
@@ -269,15 +273,16 @@ public class Main {
     //The function responsible to check the result of the CLIENT shot
     public static int[][] checkClientShotResult(int[][] grid, int x, int y) {
         if (grid[x][y]==0){                                                                         //In case there is no ship in the coordinates CLIENT missed its shot
-            System.out.println("Huh! Enemy missed! We are safe!");
+            System.out.println("Huh! Enemy missed! We are safe!\n");
             grid[x][y]=5;                                                                           //GridCell is set to 5 to indicate that there has been a missed shot in these coordinates
         } else if (grid[x][y]==1){                                                                  //In case there is SERVER ship in the coordinates, CLIENT destroys this ship
-            System.out.println("UPPS! Enemy destroyed your ship!");
+            System.out.println("UPPS! Enemy destroyed your ship!\n");
             grid[x][y]=3;                                                                           //GridCell is set to 3 to indicate that there is a DESTROYED SERVER ship
         } else if (grid[x][y]==2){                                                                  //In case there is a CLIENT ship in these coordinates, CLIENT destroyes its own ship
-            System.out.println("YUHUU! Enemy destroyed its own ship!");
+            System.out.println("YUHUU! Enemy destroyed its own ship!\n");
             grid[x][y]=4;                                                                           //GridCell is set to 4 to indicate there is a DESTROYED CLIENT ship
         }
+        delay(2);
         return grid;
     }
 
@@ -302,7 +307,7 @@ public class Main {
     }
 
     //The function responsible to show the result of the game
-    public static void() showEndResult {
+    public static void showEndResult() {
 
         if (fleets[0] == 0) {
             System.out.println("\n\nYOU LOST THE BATTLE!");

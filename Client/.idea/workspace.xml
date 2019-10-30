@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77fa6436-23bc-426e-89c5-72c7a9a5a89c" name="Default Changelist" comment="" />
+    <list default="true" id="77fa6436-23bc-426e-89c5-72c7a9a5a89c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Server/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/META-INF/Client.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Client/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/out/production/Server/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/Main.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,19 +29,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1025">
-              <caret line="241" column="32" lean-forward="true" selection-start-line="241" selection-start-column="32" selection-end-line="241" selection-end-column="32" />
+            <state relative-caret-position="308">
+              <caret line="241" column="70" selection-start-line="241" selection-start-column="70" selection-end-line="241" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#delay#0;class#Client#0" />
-                <element signature="method#intro#0;class#Client#0" />
-                <element signature="method#takingEnemyShipCoordinates#0;class#Client#0" />
-                <element signature="method#enemyShot#0;class#Client#0" />
-                <element signature="method#showNewSea#0;class#Client#0" />
-                <element signature="method#deployShips#0;class#Client#0" />
                 <element signature="method#takeCoordinate#0;class#Client#0" />
                 <element signature="method#sendCoordinates#0;class#Client#0" />
-                <element signature="method#checkEnemyShotResult#0;class#Client#0" />
                 <element signature="method#showShips#0;class#Client#0" />
               </folding>
             </state>
@@ -45,6 +51,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -55,11 +64,11 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-14" />
-    <option name="y" value="19" />
-    <option name="width" value="974" />
+    <option name="x" value="787" />
+    <option name="width" value="1108" />
     <option name="height" value="1047" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -86,9 +95,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -160,15 +170,16 @@
       <workItem from="1566829470395" duration="2127000" />
       <workItem from="1566892830399" duration="9692000" />
       <workItem from="1566908068879" duration="1256000" />
+      <workItem from="1572434156366" duration="223000" />
+      <workItem from="1572434533558" duration="5334000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24649000" />
+    <option name="totallyTimeSpent" value="30206000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-14" y="19" width="974" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="787" y="0" width="1108" height="1047" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5120614" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -179,8 +190,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49891776" weight="0.80652416" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39932507" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49891776" weight="0.3647587" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39842874" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -268,31 +279,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="29" column="5" selection-start-line="10" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="241" column="32" lean-forward="true" selection-start-line="241" selection-start-column="32" selection-end-line="241" selection-end-column="32" />
+        <state relative-caret-position="308">
+          <caret line="241" column="70" selection-start-line="241" selection-start-column="70" selection-end-line="241" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#delay#0;class#Client#0" />
-            <element signature="method#intro#0;class#Client#0" />
-            <element signature="method#takingEnemyShipCoordinates#0;class#Client#0" />
-            <element signature="method#enemyShot#0;class#Client#0" />
-            <element signature="method#showNewSea#0;class#Client#0" />
-            <element signature="method#deployShips#0;class#Client#0" />
             <element signature="method#takeCoordinate#0;class#Client#0" />
             <element signature="method#sendCoordinates#0;class#Client#0" />
-            <element signature="method#checkEnemyShotResult#0;class#Client#0" />
             <element signature="method#showShips#0;class#Client#0" />
           </folding>
         </state>
