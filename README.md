@@ -30,8 +30,9 @@ The game finishes when all the 3 ships of one of the fleets have been destroyed.
 winner of the game.
 
 # Prerequites
-You need to have at least JDK8 installed in your machine, in order for the application to run. You can [click here](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html)
+1. You need to have at least JDK8 installed in your machine, in order for the application to run. You can [click here](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html)
 for reading a tutorial on how to install JDK in Windows and/or Ubuntu.
+2. For you to run the project easier, it is reccomended to use [IntelliJ IDE](https://www.jetbrains.com/idea/download/#section=windows)
 
 # Installation and Running
 
