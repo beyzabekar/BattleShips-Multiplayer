@@ -1,5 +1,5 @@
 # Battleship
-Basic version of Battleship Game (Console Application) implemented in JAVA, for two players in different COMPUTERS
+Basic version of Battleship Game (Console Application) implemented in JAVA, for two players using different Machines connected in the same LAN.
 
 # Game Discription and Rules
 
